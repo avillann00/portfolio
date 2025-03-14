@@ -1,0 +1,11 @@
+.resume-page {
+  display: flex; 
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.resume {
+  height: 900px;
+  width: 900px;
+}
