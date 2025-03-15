@@ -1,8 +1,22 @@
 import './Landing.css';
 import { useNavigate } from 'react-router-dom';
+import projects from './projects.json';
+import ProjectCard from './ProjectCard';
 
 function Landing() {
   const navigate = useNavigate();
+
+  const cards = projects.map((project) => (
+    <ProjectCard
+      key={project.id}
+      id={project.id}
+      title={project.title}
+      previewImage={project.previewImage}
+      detailedImage={project.detailedImage}
+      detailedDescription={project.detailedDescription}
+      link={project.link}
+    />
+  ))
 
   return (
     <div className='landing-page'>
@@ -55,6 +69,11 @@ function Landing() {
       <li>SQL</li>
       <li>C</li>
       </ul>
+
+      <h3>Projects:</h3>
+      <div className='project-grid'>
+        {cards}
+      </div>
     </div>
   )
 }

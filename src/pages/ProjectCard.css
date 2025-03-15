@@ -1,0 +1,22 @@
+.project-card {
+  border: 5px solid black;
+  width: 150px;
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.preview-image {
+  border: 2px solid black;
+  width: 50%;
+  height: 40%;
+  object-fit: cover;
+}
+
+.card-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
