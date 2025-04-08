@@ -1,22 +1,25 @@
 .project-card {
-  border: 5px solid black;
-  width: 150px;
-  height: 150px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  width: 180px;
+  height: 180px;
+  transition: transform 0.2s ease-in-out;
+  border-radius: 0.5rem; /* rounded corners */
+}
+
+.project-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
 }
 
 .preview-image {
-  border: 2px solid black;
-  width: 50%;
-  height: 40%;
-  object-fit: cover;
+  width: 40%;
+  height: 40px;
+  object-fit: contain;
+  border-radius: 8px;
+  border: 2px solid #ddd;
 }
 
 .card-title {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #333;
 }

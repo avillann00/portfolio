@@ -1,4 +1,3 @@
-import './Landing.css';
 import { useNavigate } from 'react-router-dom';
 import projects from './projects.json';
 import ProjectCard from './ProjectCard';
@@ -7,75 +6,68 @@ function Landing() {
   const navigate = useNavigate();
 
   const cards = projects.map((project) => (
-    <ProjectCard
-      key={project.id}
-      id={project.id}
-      title={project.title}
-      previewImage={project.previewImage}
-      detailedImage={project.detailedImage}
-      detailedDescription={project.detailedDescription}
-      link={project.link}
-    />
-  ))
+    <div key={project.id} className="col-sm-12 col-md-6 col-lg-4 mb-4 d-flex">
+      <ProjectCard
+        id={project.id}
+        title={project.title}
+        previewImage={project.previewImage}
+        detailedImage={project.detailedImage}
+        detailedDescription={project.detailedDescription}
+        link={project.link}
+      />
+    </div>
+  ));
 
   return (
-    <div className='landing-page'>
-      <h1>This is the Landing page</h1>
-      <h1>Hello, my name is Austin Villanueva</h1>
-      <button onClick={() => navigate('/resume')}>Go to my resume</button>
-      <img className='img' src='/IMG_6032.jpg' alt='Me' />
-      <p>
-        I am a second year computer science major at the University of Central Florida. I am currently learning about full stack development and machine learning. In my free time I enjoy 
-        watching sports and working on some personal projects. I also have a hobby of collecting fragrances.
-      </p>
+    <div className="container py-5 landing-background">
+      {/* Header Section */}
+      <div className="text-center mb-5">
+        <h1 className="fw-bold text-primary display-3">Austin Villanueva's Portfolio</h1>
+        <div className="d-flex justify-content-center gap-3 mt-3">
+          <button className="btn btn-primary px-4 py-2" onClick={() => navigate('/resume')}>
+            View Resume
+          </button>
+          <button className="btn btn-outline-secondary px-4 py-2" onClick={() => navigate('/about')}>
+            About Me
+          </button>
+        </div>
+      </div>
 
-      <h3>Related Coursework:</h3>
-      <ul>
-      <li>Data structures and algorithms</li>
-      <li>Advanced data structures and algorithms</li>
-      <li>Object-oriented programming</li>
-      <li>Calculus 1</li>
-      <li>Calculus 2</li>
-      <li>Intro to discrete structures</li>
-      <li>Probability and statistics</li>
-      </ul>
+      {/* Intro Section */}
+      <div className="text-center mb-5">
+        <p className="lead text-muted">
+          I'm a second-year Computer Science major at the University of Central Florida.
+          I'm passionate about full stack development and machine learning.
+          In my free time, I enjoy watching sports, working on personal coding projects, and collecting fragrances.
+        </p>
+      </div>
 
-      <h3>Technologies:</h3>
-      <ul>
-      <li>Django</li>
-      <li>Flask</li>
-      <li>React</li>
-      <li>PostgreSQL</li>
-      <li>MySQL</li>
-      <li>Numpy</li>
-      <li>Pandas</li>
-      <li>Matplotlib</li>
-      <li>Seaborn</li>
-      <li>Scikit-learn</li>
-      <li>TensorFlow</li>
-      <li>Git</li>
-      <li>LaTex</li>
-      <li>Markdown</li>
-      <li>VSCode</li>
-      <li>Vim/Nvim</li>
-      </ul>
-
-      <h3>Languages:</h3>
-      <ul>
-      <li>Python</li>
-      <li>JavaScript</li>
-      <li>TypeScript</li>
-      <li>Java</li>
-      <li>SQL</li>
-      <li>C</li>
-      </ul>
-
-      <h3>Projects:</h3>
-      <div className='project-grid'>
+      {/* Projects Section */}
+      <h3 className="mb-4 text-center text-primary">Projects</h3>
+      <div className="row d-flex justify-content-center gx-4 gy-4">
         {cards}
       </div>
+
+      {/* Contact Section */}
+      <div className="text-center mb-4 py-5">
+        <h3 className="text-primary">Contact</h3>
+        <div className="d-flex justify-content-center gap-5">
+          <div className="card p-3" style={{ maxWidth: "200px" }}>
+            <h5>Email</h5>
+            <p className="mb-0">au563482@ucf.edu</p>
+          </div>
+          <div className="card p-3" style={{ maxWidth: "200px" }}>
+            <h5>GitHub</h5>
+            <a href="https://github.com/avillann00" className="btn btn-outline-primary w-100">GitHub Profile</a>
+          </div>
+          <div className="card p-3" style={{ maxWidth: "200px" }}>
+            <h5>LinkedIn</h5>
+            <a href="https://www.linkedin.com/in/austin-villanueva-56abbb2b2" className="btn btn-outline-primary w-100">LinkedIn Profile</a>
+          </div>
+        </div>
+      </div>
     </div>
-  )
+  );
 }
 
 export default Landing;
